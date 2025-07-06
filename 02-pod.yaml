@@ -2,10 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: expense-pod
-  namespace: expense
-spec:
+  spec:
   containers:
-  - name: expense-nginix-container
+  - name: nginx-container
     image: nginx:latest
     ports:
       - containerPort: 80
