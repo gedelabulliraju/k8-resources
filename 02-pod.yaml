@@ -1,10 +1,20 @@
-kind: Pod
 apiVersion: v1
+kind: Pod
 metadata:
-  name: expense
-  spec:
+  name: nginx
+spec:
   containers:
-  - name: nginx-container
-    image: nginx:latest
-    ports:
-      - containerPort: 80
+  # docker run -d --name nginx nginx
+  - name: nginx
+    image: nginx:stable-perl
+    
+# kind: Pod
+# apiVersion: v1
+# metadata:
+#   name: expense
+#   spec:
+#   containers:
+#   - name: nginx-container
+#     image: nginx:latest
+#     ports:
+#       - containerPort: 80
