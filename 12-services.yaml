@@ -1,0 +1,29 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: lebels
+  labels: # to use in service selector
+    project: expense
+    module: backend
+    environment: dev
+spec:
+  containers: # to define the container in the pod
+  - name: nginx
+    image: nginx
+---
+kind: Service # to expose the pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  selector: # lebels
+    project: expense
+    module: backend
+    environment: dev
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80 # This is the port on the service
+    targetPort: 80 # This is the port on the container
+
+    
