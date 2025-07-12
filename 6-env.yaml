@@ -2,13 +2,14 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: env
-containers:
-  - name: nginx
-    image: nginx
-    env:
-    - name: course
-      value: "DevOps"
-    - name: trainer
-      value: "John Doe"
-    - name: duration
-      value: "5 years"
+spec:
+  containers:
+   - name: nginx
+     image: nginx
+     env:
+      - name: course
+        value: "DevOps"
+      - name: trainer
+        value: "John Doe"
+      - name: duration
+        value: "5 years"
