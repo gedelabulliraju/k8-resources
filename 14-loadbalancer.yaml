@@ -1,0 +1,15 @@
+kind: Service # to expose the pod
+apiVersion: v1
+metadata:
+  name: nginx-lb # NodePort service
+spec:
+  type: loadBalancer # to expose the service via a load balancer
+  selector: # lebels
+    project: expense
+    module: backend
+    environment: dev
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80 # This is the port on the service
+    targetPort: 80 # This is the port on the container
