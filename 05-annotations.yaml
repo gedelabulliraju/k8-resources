@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: annotations
   annotations:
-    Image registry: "https://hub.docker.com"
+    Imageregistry: "https://hub.docker.com"
     buildurl: "https://jenkins.joindevops.com/expense/backend/build/67"
 spec:
   containers:
