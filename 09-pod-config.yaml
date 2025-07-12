@@ -10,10 +10,10 @@ spec:
     - name: COURSE_NAME
       valueFrom:
         configMapKeyRef:
-          name: configmap
+          name: nginx-config
           key: course
     - name: COURSE_DURATION
       valueFrom:
         configMapKeyRef:
-          name: configmap
+          name: nginx-config
           key: duration
