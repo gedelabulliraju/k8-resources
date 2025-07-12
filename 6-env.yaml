@@ -6,8 +6,6 @@ containers:
   - name: nginx
     image: nginx
     env:
-    - name: Imageregistry
-      value: "https://hub.docker.com"
     - name: course
       value: "DevOps"
     - name: trainer
