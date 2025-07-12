@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: env
+containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: Imageregistry
+      value: "https://hub.docker.com"
+    - name: course
+      value: "DevOps"
+    - name: trainer
+      value: "John Doe"
+    - name: duration
+      value: "5 years"
