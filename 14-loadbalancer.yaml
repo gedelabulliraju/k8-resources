@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: nginx-lb # NodePort service
 spec:
-  type: loadBalancer # to expose the service via a load balancer
+  type: LoadBalancer # to expose the service via a load balancer
   selector: # lebels
     project: expense
     module: backend
