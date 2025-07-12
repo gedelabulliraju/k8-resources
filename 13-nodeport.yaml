@@ -1,0 +1,15 @@
+kind: Service # to expose the pod
+apiVersion: v1
+metadata:
+  name: nginx-np # NodePort service
+spec:
+  type: NodePort # to expose the service on a port on each node
+  selector: # lebels
+    project: expense
+    module: backend
+    environment: dev
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80 # This is the port on the service
+    targetPort: 80 # This is the port on the container
