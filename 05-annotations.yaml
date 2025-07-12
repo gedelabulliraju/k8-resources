@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: annotations
+  annotations:
+    project: expense
+    module: backend
+    environment: dev
+    Image registry: "https://hub.docker.com"
+    buildurl: "https://jenkins.joindevops.com/expense/backend/build/67"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+
