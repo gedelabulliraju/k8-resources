@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-replicaset
+  labels:
+    app: nginx
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+      app: nginx
+  template:
+    metadata:
+      labels:
+        tier: frontend
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+kind: Service
+apiVersion: v1
+metadata: 
+  name: nginix-svc
+  labels:
+    app: nginx
+    tier: frontend
+spec:
+  # type: NodePort # to expose the service on a port on each node
+  selector:
+    tier: frontend
+    app: nginx
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    # nodePort: 30080 # optional, to expose on a specific port
