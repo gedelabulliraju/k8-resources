@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: efs-static-pv
+  name: expense-efs
 spec:
   capacity:
     storage: 3Gi
@@ -17,9 +17,9 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: efs-static-pvc
+  name: expense-efs
 spec:
-  volumeName: efs-static-pv
+  volumeName: expense-efs
   storageClassName: "" # Use the StorageClass created in 02-sc.yaml
   accessModes:
   - ReadWriteOnce
