@@ -49,7 +49,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ebs-static-service-LoadBalancer
+  name: ebs-static-service-loadbalancer
 spec:
   type: LoadBalancer
   selector:
