@@ -13,3 +13,34 @@ spec:
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-038925e9c2b13a920 # Replace with your EFS file system ID
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-static-pvc
+spec:
+  storageClassName: "" # Use the StorageClass created in 02-sc.yaml
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: efs-static-pod
+  labels:
+    purpose: efs-static-pod
+    app: nginx
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1b # Replace with your zone
+  containers:
+  - name: efs-container
+    image: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: efs-static-pv
+  volumes:
+  - name: efs-static-pv
