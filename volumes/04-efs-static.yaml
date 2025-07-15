@@ -44,3 +44,18 @@ spec:
       name: efs-static-pv
   volumes:
   - name: efs-static-pv
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: efs-static-service-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: efs-static-pod
+  ports:
+  - name: nginx-svc-port
+    protocol: TCP 
+    port: 80
+    targetPort: 80
+    nodePort: 30080 # Optional, can be removed if not needed
