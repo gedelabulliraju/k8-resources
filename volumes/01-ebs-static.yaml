@@ -28,7 +28,10 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ebs-static-pod
+  name: ebs-static-
+  labels:
+    purpose: ebs-static-pod
+    app: nginx
 spec:
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1b # Replace with your zone
@@ -50,7 +53,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: ebs-static-pod
+    purpose: ebs-static-pod
   ports:
   - name: nginx-svc-port
     protocol: TCP 
