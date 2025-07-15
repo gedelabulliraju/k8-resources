@@ -17,10 +17,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs-static-pvc
 spec:
+  storageClassName: ""
+  volumeName: ebs-static-pv
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
       storage: 20Gi
-  storageClassName: ""
-  volumeName: ebs-static-pv
+  
+  
