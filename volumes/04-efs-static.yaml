@@ -19,6 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: efs-static-pvc
 spec:
+  volumeName: efs-static-pv
   storageClassName: "" # Use the StorageClass created in 02-sc.yaml
   accessModes:
   - ReadWriteOnce
