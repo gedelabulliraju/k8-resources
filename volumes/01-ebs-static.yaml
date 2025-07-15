@@ -24,5 +24,21 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  
-  
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ebs-static-pod
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1b # Replace with your zone
+  containers:
+  - name: ebs-container
+    image: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: ebs-volume
+  volumes:
+  - name: ebs-static-pv
+    persistentVolumeClaim:
+      claimName: ebs-static-pvc
