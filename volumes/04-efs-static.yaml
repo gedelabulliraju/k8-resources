@@ -42,9 +42,10 @@ spec:
     image: nginx
     volumeMounts:
     - mountPath: /usr/share/nginx/html
-      name: efs-static-pv
   volumes:
-  - name: efs-static-pv
+  - name: expense-efs
+    persistentVolumeClaim:
+      claimName: expense-efs
 ---
 kind: Service
 apiVersion: v1
@@ -56,7 +57,7 @@ spec:
     purpose: efs-static-pod
   ports:
   - name: nginx-svc-port
-    protocol: TCP 
+    protocol: TCP
     port: 80
     targetPort: 80
     nodePort: 30080 # Optional, can be removed if not needed
