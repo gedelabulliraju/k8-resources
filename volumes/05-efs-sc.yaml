@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: efs-sc # Replace with your desired StorageClass name
+provisioner: efs.csi.aws.com
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-038925e9c2b13a920 # Replace with your EFS file system ID
+  basePath: "/expense" # Optional, specify a base path for EFS
