@@ -43,5 +43,5 @@ spec:
   - name: nginx-svc-port
     protocol: TCP 
     port: 80
-    containerPort: 80
+    targetPort: 80
     nodePort: 30080 # Optional, specify a node port if needed
