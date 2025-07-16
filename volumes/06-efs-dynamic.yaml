@@ -23,7 +23,7 @@ spec:
   containers:
   - name: efs-container
     image: nginx    
-    voulumeMounts:
+    volumeMounts:
     - name: expense-efs-dynamic
       mountPath: /usr/share/nginx/html
   volumes:
