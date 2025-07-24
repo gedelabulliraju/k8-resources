@@ -40,7 +40,7 @@ spec:
   containers:
   - name: efs-container
     image: nginx
-    volumeMounts: 
+    volumeMounts:
     - name: expense-efs
       mountPath: /usr/share/nginx/html
   volumes:
