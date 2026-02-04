@@ -39,7 +39,8 @@ metadata:
   name: secret-reader-pod
   namespace: expense
 spec:
+  serviceAccountName: secret-reader
   containers:
   - name: nginx
     image: nginx:stable-perl
-  ServiceAccountName: secret-reader
+
